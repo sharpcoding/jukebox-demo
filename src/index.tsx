@@ -1,7 +1,8 @@
 import React, { Fragment } from "react"
 import ReactDOM from "react-dom"
-import { App } from "./components/App"
+import { TreeList } from "./components/TreeList"
 import { createGlobalStyle } from "styled-components"
+import { testNode } from "./data-structures/tree"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -17,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <Fragment>
     <GlobalStyle />
-    <App />
+    <TreeList node={testNode} />
   </Fragment>,
   document.getElementById("root")
 )
