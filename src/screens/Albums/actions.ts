@@ -18,3 +18,4 @@ export class AlbumsLoadFailedAction implements Action {
 export type AlbumsScreenReducerActionTypes =
   | AlbumsLoadStartedAction
   | AlbumsLoadSucceededAction
+  | AlbumsLoadFailedAction

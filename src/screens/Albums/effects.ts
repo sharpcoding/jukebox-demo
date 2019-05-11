@@ -1,6 +1,10 @@
 import * as _ from "lodash"
 import { Dispatch } from "redux"
-import { AlbumsLoadStartedAction, AlbumsLoadSucceededAction } from "./actions"
+import {
+  AlbumsLoadStartedAction,
+  AlbumsLoadSucceededAction,
+  AlbumsLoadFailedAction
+} from "./actions"
 import { RawAlbumRecord } from "./models"
 
 export type LoadAlbumsEffect = () => (dipatch: Dispatch) => void
@@ -12,29 +16,14 @@ export type LoadAlbumsEffect = () => (dipatch: Dispatch) => void
 
 export const loadAlbums: LoadAlbumsEffect = () => (dispatch: Dispatch) => {
   dispatch(_.toPlainObject(new AlbumsLoadStartedAction()))
-  new Promise<RawAlbumRecord[]>((resolve, reject) =>
-    setTimeout(
-      () =>
-        resolve([
-          {
-            band: "Cat Power",
-            album: "Sun",
-            song: "Human Being"
-          },
-          {
-            band: "Beatles",
-            album: "Abbey Road",
-            song: "Maxwell's Silver Hammer"
-          },
-          {
-            band: "Cat Power",
-            album: "Sun",
-            song: "Always On My Own"
-          }
-        ]),
-      500
-    )
-  ).then((data: RawAlbumRecord[]) =>
-    dispatch(_.toPlainObject(new AlbumsLoadSucceededAction(data)))
-  )
+  fetch("http://localhost:8000/data.json")
+    .then((value: Response) => {
+      return value.json()
+    })
+    .then((value: RawAlbumRecord[]) => {
+      dispatch(_.toPlainObject(new AlbumsLoadSucceededAction(value)))
+    })
+    .catch(() => {
+      dispatch(_.toPlainObject(new AlbumsLoadFailedAction()))
+    })
 }

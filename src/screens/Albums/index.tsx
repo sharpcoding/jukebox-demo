@@ -16,20 +16,20 @@ interface ScreenState {
   // intentionally left empty !
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   loadAlbums: LoadAlbumsEffect
 }
 
 export class TreeListScreen extends React.Component<
-  ScreenProps & IDispatchProps,
+  ScreenProps & DispatchProps,
   ScreenState
 > {
-  public render() {
-    return <TreeList node={this.props.node} />
+  public componentWillMount() {
+    this.props.loadAlbums()
   }
 
-  public componentDidMount() {
-    this.props.loadAlbums()
+  public render() {
+    return <TreeList node={this.props.node} />
   }
 }
 
@@ -46,8 +46,7 @@ const matchDispatchToProps = (dispatch: Dispatch) => {
   )
 }
 
-export const AlbumsScreen = connect<ScreenProps, IDispatchProps, {}>(
-  //@ts-ignore
+export const AlbumsScreen = connect(
   mapStateToProps,
   matchDispatchToProps
 )(TreeListScreen)

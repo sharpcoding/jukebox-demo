@@ -1,4 +1,4 @@
-export enum EnumNodeState {
+export enum EnumExpandedCollapsed {
   Expanded,
   Collapsed,
   NotExpandable // leaf node
