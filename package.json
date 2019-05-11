@@ -10,6 +10,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "styled-components": "^4.2.0",
     "typescript": "3.4.5"
   },
   "scripts": {
@@ -38,5 +39,8 @@
     "requirePragma": false,
     "tabWidth": 2,
     "arrowParens": "always"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^4.1.14"
   }
 }
