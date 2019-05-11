@@ -2,14 +2,14 @@ import React, { Fragment } from "react"
 import _ from "lodash"
 import { ExpandButton, CollapseButton } from "../buttons"
 import * as S from "./styles"
-import { Node } from "../../../../data-structures"
+import { TreeNode } from "../../../../data-structures"
 
-interface CollapsedNodeProps extends Node {
+interface CollapsedNodeProps extends TreeNode {
   onClick: () => void
 }
 
 interface ExpandedNodeProps extends CollapsedNodeProps {
-  renderAnotherNodeView: (el: Node) => React.ReactElement
+  renderAnotherNodeView: (el: TreeNode) => React.ReactElement
 }
 
 export const ChildNodes = (props: ExpandedNodeProps) => {
@@ -48,6 +48,6 @@ export const ExpandedNode = (props: ExpandedNodeProps) => {
   )
 }
 
-export const LeafNode = (props: Node) => {
+export const LeafNode = (props: TreeNode) => {
   return <S.LeafNode>{props.caption}</S.LeafNode>
 }

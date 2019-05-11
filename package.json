@@ -10,7 +10,10 @@
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
     "react-scripts": "3.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0",
     "typescript": "3.4.5"
   },
@@ -43,6 +46,8 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.126",
+    "@types/react-redux": "^7.0.8",
+    "@types/redux": "^3.6.0",
     "@types/styled-components": "^4.1.14"
   }
 }

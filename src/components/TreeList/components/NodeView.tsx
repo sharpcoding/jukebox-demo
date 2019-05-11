@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import _ from "lodash"
-import { Node } from "../../../data-structures"
+import { TreeNode } from "../../../data-structures"
 import { EnumNodeState } from "../definitions"
 import { CollapsedNode, ExpandedNode, LeafNode } from "./nodes"
 
 interface Props {
-  node: Node
+  node: TreeNode
 }
 
 export const NodeView = (props: Props) => {

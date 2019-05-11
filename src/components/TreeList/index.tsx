@@ -1,10 +1,12 @@
 import React from "react"
 import * as S from "./styles"
-import { Node } from "../../data-structures"
 import { NodeView } from "./components"
+import { TreeNode } from "../../data-structures"
+
+export * from "../../data-structures"
 
 interface Props {
-  node: Node
+  node: TreeNode
 }
 
 export const TreeList = (props: Props) => {

@@ -1,6 +1,6 @@
-import { Node } from "./"
+import { TreeNode } from "./"
 
-export const testNodes: Node = {
+export const testNodes: TreeNode = {
   uuid: "48b3fb82-7907-45fa-a754-f97f427396a0",
   caption: "Programming-languages",
   children: [

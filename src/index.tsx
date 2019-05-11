@@ -1,8 +1,9 @@
 import React, { Fragment } from "react"
+import { Provider } from "react-redux"
 import ReactDOM from "react-dom"
-import { TreeList } from "./components/TreeList"
+import { store } from "./store"
 import { createGlobalStyle } from "styled-components"
-import { testNodes } from "./data-structures/tree"
+import { AlbumsScreen } from "./screens/Albums"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,9 +17,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 ReactDOM.render(
-  <Fragment>
-    <GlobalStyle />
-    <TreeList node={testNodes} />
-  </Fragment>,
+  <Provider store={store}>
+    <Fragment>
+      <GlobalStyle />
+      <AlbumsScreen />
+    </Fragment>
+  </Provider>,
   document.getElementById("root")
 )
