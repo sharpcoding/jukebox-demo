@@ -159,7 +159,7 @@ As you can see, the `TreeView` itself takes care of converting flat, tabular dat
   - are imported the following way: `import * as S from './styles'`
 - ✅ React function components (with hooks) are preferred over class components
 - ✅ Named exports/imports are preferred over `default`
-- ✅ [Prettier](https://github.com/prettier/prettier) code formatter is chosen to keep code tidy
+- ✅ [Prettier](https://github.com/prettier/prettier) formatter was chosen to keep code tidy
 
 # Create React App section
 
