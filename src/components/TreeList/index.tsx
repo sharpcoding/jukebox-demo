@@ -4,6 +4,7 @@ import { NodeView } from "./components"
 import { TreeNode } from "../../data-structures"
 
 export * from "../../data-structures"
+export * from "./data-loaders"
 
 interface Props {
   node: TreeNode
