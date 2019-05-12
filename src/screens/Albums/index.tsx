@@ -24,7 +24,7 @@ export class TreeListScreen extends React.Component<
   ScreenProps & DispatchProps,
   ScreenState
 > {
-  public componentWillMount() {
+  public componentDidMount() {
     this.props.loadAlbums()
   }
 
