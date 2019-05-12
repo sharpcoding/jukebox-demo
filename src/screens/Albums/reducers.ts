@@ -2,7 +2,13 @@ import _ from "lodash"
 import { v4 } from "uuid"
 import { AlbumsScreenReducerActionTypes } from "./actions"
 import * as actionTypes from "./action-types"
-import { AlbumsScreenState, convertRawDataToTreeNode } from "./models"
+import {
+  AlbumsScreenState,
+  RawAlbumRecord,
+  makeRawAlbumDataDataTwoLevel,
+  ConvertedRawAlbumRecord
+} from "./models"
+import { convertRawDataToTreeNodeWithHierarchy } from "../../components/TreeList"
 
 const initialState: AlbumsScreenState = {
   albumsRaw: [],
@@ -25,7 +31,9 @@ export const albumsScreenReducer = (
     case actionTypes.ALBUMS_LOAD_SUCCEEDED:
       return {
         ...state,
-        albumsNode: convertRawDataToTreeNode(action.payload)
+        albumsNode: convertRawDataToTreeNodeWithHierarchy<
+          ConvertedRawAlbumRecord
+        >(makeRawAlbumDataDataTwoLevel(action.payload), ["bandAlbum", "song"])
       } as AlbumsScreenState
     case actionTypes.ALBUMS_LOAD_FAILED:
       return {

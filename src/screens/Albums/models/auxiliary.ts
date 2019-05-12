@@ -1,59 +1,28 @@
 import _ from "lodash"
 import { TreeNode } from "../../../data-structures"
 import { v4 } from "uuid"
-import { RawAlbumRecord } from "."
+import { RawAlbumRecord } from "./raw-payload"
 
-type GroupedRawAlbumRecord = { [key: string]: RawAlbumRecord[] }
+export interface ConvertedRawAlbumRecord {
+  /**
+   * Concatenated band + album
+   */
+  bandAlbum: string
+  song: string
+}
 
-const getSongs = (raw: RawAlbumRecord[]): TreeNode[] => {
-  return _.toArray(
-    _.chain(raw)
-      .map((el) => {
-        return {
-          caption: el.song,
-          uuid: v4()
-        } as TreeNode
-      })
+export const makeRawAlbumDataDataTwoLevel = (
+  rawData: RawAlbumRecord[]
+): ConvertedRawAlbumRecord[] =>
+  _.toArray(
+    _.chain(rawData)
+      .map(
+        (el: RawAlbumRecord) =>
+          ({
+            bandAlbum: `${el.band} - ${el.album}`,
+            song: el.song
+          } as ConvertedRawAlbumRecord)
+      )
+      .sortBy((el: ConvertedRawAlbumRecord) => el.bandAlbum)
       .value()
   )
-}
-
-const getAlbums = (raw: RawAlbumRecord[]): TreeNode[] => {
-  const albums: GroupedRawAlbumRecord = _.groupBy(raw, (el) => el.album)
-  return _.toArray(
-    _.chain(albums)
-      .keys()
-      .map((albumName) => {
-        return {
-          caption: albumName,
-          children: getSongs(albums[albumName]),
-          uuid: v4()
-        } as TreeNode
-      })
-      .value()
-  )
-}
-
-const getBands = (raw: RawAlbumRecord[]): TreeNode[] => {
-  const bands: GroupedRawAlbumRecord = _.groupBy(raw, (el) => el.band)
-  return _.toArray(
-    _.chain(bands)
-      .keys()
-      .map((bandName) => {
-        return {
-          caption: bandName,
-          children: getAlbums(bands[bandName]),
-          uuid: v4()
-        } as TreeNode
-      })
-      .value()
-  )
-}
-
-export const convertRawDataToTreeNode = (raw: RawAlbumRecord[]): TreeNode => {
-  return {
-    caption: "Albums",
-    children: getBands(raw),
-    uuid: v4()
-  }
-}
