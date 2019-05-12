@@ -36,7 +36,7 @@ export const NodeView = (props: Props) => {
         <ExpandedNode
           {...props.node}
           onClick={() => setExpandedCollapsed(EnumExpandedCollapsed.Collapsed)}
-          renderAnotherNodeView={(el) => <NodeView node={el} />}
+          renderChildNodeView={(el) => <NodeView node={el} />}
         />
       )
     case EnumExpandedCollapsed.NotExpandable:

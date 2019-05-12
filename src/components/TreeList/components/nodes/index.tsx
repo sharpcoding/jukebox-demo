@@ -9,7 +9,7 @@ interface CollapsedNodeProps extends TreeNode {
 }
 
 interface ExpandedNodeProps extends CollapsedNodeProps {
-  renderAnotherNodeView: (el: TreeNode) => React.ReactElement
+  renderChildNodeView: (el: TreeNode) => React.ReactElement
 }
 
 export const ChildNodes = (props: ExpandedNodeProps) => {
@@ -18,7 +18,7 @@ export const ChildNodes = (props: ExpandedNodeProps) => {
     <Fragment>
       {props.children.map((el) => {
         return (
-          <Fragment key={el.uuid}>{props.renderAnotherNodeView(el)}</Fragment>
+          <Fragment key={el.uuid}>{props.renderChildNodeView(el)}</Fragment>
         )
       })}
     </Fragment>
