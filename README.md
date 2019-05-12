@@ -153,6 +153,7 @@ As you can see, the `TreeView` itself takes care of converting flat, tabular dat
   - similarly, a component contains models and algorithms that are relevant to component responsibility
 - ✅ "Batteries included" philosophy is complementary to code-reuse: if something can be (re)used by several places in application, it should be moved up to a dedicated module; please note this demo-project is extremely small
 - ✅ `index.ts`/`index.tsx` is used very heavily to re-export entities as folders are grouping bigger functionalities and act as modules
+- ✅ Emoji characters, not the SVG icons were used for rendering expand / collapse buttons (simpler, faster)
 - ✅ Styled-Components
   - are placed in separate modules named `styles`
   - are imported the following way: `import * as S from './styles'`
