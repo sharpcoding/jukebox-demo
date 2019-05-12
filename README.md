@@ -1,3 +1,167 @@
+# Project overview
+
+A hobby project for playing around with:
+
+- ✅ React Hooks
+- ✅ Styled-Components
+- ✅ Redux and React-Redux
+- ✅ Typescript
+- 👉 Hierarchical data rendering with `TreeList` component (more on this below)
+
+See the [demo](http://glib-giraffe.surge.sh/) 🚀
+
+For quickstart and available scripts please visit _Create React App_ section below
+
+## More in-depth description
+
+The goal of the project was the following
+
+A) for a list:
+
+- containing objects
+- all being identical - having some attributes (i.e. flat, tabular data),
+- serialized as JSON array
+
+B) write a SPA, that:
+
+- uses `Redux` for
+  - loading the JSON array asynchronously via HTTP/HTTPS
+  - converting it to internal representation
+  - storing
+  - orchestrating unidirectional data-flow
+- and, finally, visualizes the data (having attributes as a hierarchy)
+
+The last goal is achieved by `TreeList` component, written completely from scratch, equipped with **convenient** transforming a flat list of rows into any given hierarchy.
+
+### Visualizing hierarchical data with `TreeList` component
+
+As an example, in the following example JSON...
+
+```
+[
+  {
+    "name": "John",
+    "occupation": "teacher",
+    "salary": "30-60K",
+    "children": "3"
+  },
+  {
+    "name": "Mary",
+    "occupation": "bartender",
+    "salary": "10-30K",
+    "children": "0"
+  },
+  {
+    "name": "John",
+    "occupation": "teacher",
+    "salary": "30-60K",
+    "children": "2"
+  },
+  {
+    "name": "John",
+    "occupation": "bartender",
+    "salary": "10-50K",
+    "children": "3"
+  },
+  {
+    "name": "John",
+    "occupation": "fireman",
+    "salary": "30-60K",
+    "children": "1"
+  },
+  {
+    "name": "Alex",
+    "occupation": "fireman",
+    "salary": "30-60K",
+    "children": "3"
+  },
+  {
+    "name": "John",
+    "occupation": "programmer",
+    "salary": "50-100K",
+    "children": "2"
+  },
+  {
+    "name": "John",
+    "occupation": "director",
+    "salary": "100-150K",
+    "children": "3"
+  },
+  {
+    "name": "Ann",
+    "occupation": "nurse",
+    "salary": "30-60K",
+    "children": "1"
+  }
+]
+```
+
+...there are four attributes:
+
+- `occupation`
+- `salary`
+- `children`
+- `name` (not very useful)
+
+...that might be visualized differently (allowing for data drill down):
+
+![data](./docs/img/proffessions-and-number-of-kids.png)
+
+![data](./docs/img/salary-by-profession.png)
+
+![data](./docs/img/salary-by-number-of-kids.png)
+
+The latest visualization can be achieved by the following conversion call
+
+```
+const raw = [
+  {
+    "name": "John",
+    "occupation": "teacher",
+    "salary": "30-60K",
+    "children": "3"
+  },
+  // ...
+]
+
+const node = convertRawDataToTreeNodeWithHierarchy<SalaryInformationRecord>(
+  raw,
+  ["children", "salary", "occupation"],
+  "Salaries by number of kids"
+)
+```
+
+where `SalaryInformationRecord` is a Typescript interface:
+
+```
+interface SalaryInformationRecord {
+  name: string
+  occupation: string
+  salary: string
+  children: string
+}
+```
+
+As you can see, the `TreeView` itself takes care of converting flat, tabular data into a (desired) tree hierarchy.
+
+## Project (implementation and design) decisions
+
+- ✅ Create React App with Typescript support was used as a kick-start
+- ✅ Redux-related file organization and general ideas are based on the [following guidelines](https://github.com/sharpcoding/react-redux-typescript-starter-kit)
+- ✅ Screens and components exhibit **batteries-included** approach:
+  - a screen contains reducers, actions, action creators, effects, models etc. that are relevant to getting things done - it is up to Redux store to take it and aggregate / reuse accordingly
+  - similarly, a component contains models and algorithms that are relevant to component responsibility
+- ✅ "Batteries included" philosophy is complementary to code-reuse: if something can be (re)used by several places in application, it should be moved up to a dedicated module; please note this demo-project is extremely small
+- ✅ `index.ts`/`index.tsx` is used very heavily to re-export entities as folders are grouping bigger functionalities and act as modules
+- ✅ Styled-Components
+  - are placed in separate modules named `styles`
+  - are imported the following way: `import * as S from './styles'`
+- ✅ React function components (with hooks) are preferred over class components
+- ✅ Named exports/imports are preferred over `default`
+- ✅ [Prettier](https://github.com/prettier/prettier) code formatter is chosen to keep code tidy
+
+# Create React App section
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -36,3 +200,7 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+```
+
+```
