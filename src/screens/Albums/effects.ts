@@ -16,7 +16,7 @@ export type LoadAlbumsEffect = () => (dipatch: Dispatch) => void
 
 export const loadAlbums: LoadAlbumsEffect = () => (dispatch: Dispatch) => {
   dispatch(_.toPlainObject(new AlbumsLoadStartedAction()))
-  fetch("http://localhost:8000/albums.json")
+  fetch("/json/albums.json")
     .then((value: Response) => {
       return value.json()
     })
