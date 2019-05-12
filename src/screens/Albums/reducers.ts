@@ -4,7 +4,6 @@ import { AlbumsScreenReducerActionTypes } from "./actions"
 import * as actionTypes from "./action-types"
 import {
   AlbumsScreenState,
-  RawAlbumRecord,
   makeRawAlbumDataDataTwoLevel,
   ConvertedRawAlbumRecord
 } from "./models"
