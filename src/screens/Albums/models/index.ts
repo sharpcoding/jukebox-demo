@@ -1,4 +1,4 @@
-import { TreeNode } from "../../../data-structures/index"
+import { TreeNode } from "../../../components/TreeList"
 import { RawAlbumRecord } from "./raw-payload"
 export * from "./raw-payload"
 export * from "./auxiliary"

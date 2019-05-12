@@ -1,9 +1,9 @@
 import React from "react"
 import * as S from "./styles"
 import { NodeView } from "./components"
-import { TreeNode } from "../../data-structures"
+import { TreeNode } from "./data-structures"
 
-export * from "../../data-structures"
+export * from "./data-structures"
 export * from "./data-loaders"
 
 interface Props {

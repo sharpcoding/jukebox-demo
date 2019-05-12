@@ -68,10 +68,11 @@ const getNodesByHierarchy = <TRecord>(
  */
 export const convertRawDataToTreeNodeWithHierarchy = <TRecord>(
   raw: TRecord[],
-  hierarchy: string[]
+  hierarchy: string[],
+  masterNodeCaption: string
 ): TreeNode => {
   return {
-    caption: "Albums",
+    caption: masterNodeCaption,
     children: getNodesByHierarchy<TRecord>(raw, hierarchy),
     uuid: v4()
   }

@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import _ from "lodash"
 import { ExpandButton, CollapseButton } from "../buttons"
 import * as S from "./styles"
-import { TreeNode } from "../../../../data-structures"
+import { TreeNode } from "../../data-structures"
 
 interface CollapsedNodeProps extends TreeNode {
   onClick: () => void

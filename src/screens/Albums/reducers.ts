@@ -32,7 +32,11 @@ export const albumsScreenReducer = (
         ...state,
         albumsNode: convertRawDataToTreeNodeWithHierarchy<
           ConvertedRawAlbumRecord
-        >(makeRawAlbumDataDataTwoLevel(action.payload), ["bandAlbum", "song"])
+        >(
+          makeRawAlbumDataDataTwoLevel(action.payload),
+          ["bandAlbum", "song"],
+          "Albums"
+        )
       } as AlbumsScreenState
     case actionTypes.ALBUMS_LOAD_FAILED:
       return {
