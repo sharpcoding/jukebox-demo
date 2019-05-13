@@ -154,7 +154,7 @@ As you can see, the `TreeView` itself takes care of converting flat, tabular dat
 - ✅ Components and modules are being kept very small and tidy
 - ✅ "Batteries included" approach is complementary to code-reuse: if something can in (re)used by several places of application, it should be moved up to a dedicated module; please note this demo-project is extremely small
 - ✅ `index.ts`/`index.tsx` is used very heavily to re-export entities as folders are grouping bigger functionalities and act as modules
-  - e.g. [data structures](/src/components/TreeList/data-structures/index.ts) re-exports [TreeNode](/src/components/TreeList/data-structures/tree-node.ts) interface, then [TreeList](/src/components/TreeList/index.tsx) component re-exports everything that can be considered as `TreeList` public interface (data structures and `TreeNode` as the result)
+  - e.g. [data structures](/src/components/TreeList/data-structures/index.ts) module re-exports [TreeNode](/src/components/TreeList/data-structures/tree-node.ts) interface, then [TreeList](/src/components/TreeList/index.tsx) component re-exports everything that can be considered as `TreeList` public interface (data structures and `TreeNode` as the result)
 - ✅ Emoji characters, not the SVG icons were used for rendering expand / collapse buttons (simpler, faster)
 - ✅ Styled-Components
   - are placed in separate modules named `styles`
