@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import _ from "lodash"
-import { TreeNode } from "../data-structures"
+import { TreeNode } from "../"
 import { EnumExpandedCollapsed } from "../definitions"
 import { CollapsedNode, ExpandedNode, LeafNode } from "./nodes"
 

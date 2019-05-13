@@ -10,6 +10,5 @@ export const ChildNodes = styled(RootNode)`
 `
 
 export const LeafNode = styled.div`
-  margin-top: 4px;
-  margin-bottom: 4px;
+  font-weight: 200;
 `

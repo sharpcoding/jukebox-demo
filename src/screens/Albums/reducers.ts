@@ -1,4 +1,3 @@
-import _ from "lodash"
 import { v4 } from "uuid"
 import { AlbumsScreenReducerActionTypes } from "./actions"
 import * as actionTypes from "./action-types"

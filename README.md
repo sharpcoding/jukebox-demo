@@ -8,7 +8,7 @@ A hobby project for playing around with:
 - ✅ Typescript
 - 👉 Hierarchical data rendering with `TreeList` component (more on this below)
 
-See the [demo](http://glib-giraffe.surge.sh/) 🚀
+See the [demo](http://gorgeous-toy.surge.sh/) 🚀
 
 For quickstart and available scripts please visit _Create React App_ section below
 
@@ -155,6 +155,7 @@ As you can see, the `TreeView` itself takes care of converting flat, tabular dat
 - ✅ "Batteries included" approach is complementary to code-reuse: if something can in (re)used by several places of application, it should be moved up to a dedicated module; please note this demo-project is extremely small
 - ✅ `index.ts`/`index.tsx` is used very heavily to re-export entities as folders are grouping bigger functionalities and act as modules
   - e.g. [data structures](/src/components/TreeList/data-structures/index.ts) module re-exports [TreeNode](/src/components/TreeList/data-structures/tree-node.ts) interface, then [TreeList](/src/components/TreeList/index.tsx) component re-exports everything that can be considered as `TreeList` public interface (data structures and `TreeNode` as the result)
+- ✅ Models are placed in `models` folders and re-exported as abovementioned
 - ✅ Emoji characters, not the SVG icons were used for rendering expand / collapse buttons (simpler, faster)
 - ✅ Styled-Components
   - are placed in separate modules named `styles`
@@ -165,18 +166,18 @@ As you can see, the `TreeView` itself takes care of converting flat, tabular dat
 
 ## Known problems
 
-- ❌IE11 is not supported so far :(
-- List styling could be done better
+- ✅ fixed ~~IE11 is not supported so far :(~~
+- ✅ fixed ~~List styling could be done better~~
 - No tests so far !
 
 ### Browser compatibility
 
-- ❌IE11 ('fetch' is undefined - missing `fetch` polyfill)
-- ✅Edge (latest) works
-- ✅Opera (latest) works
-- ✅Firefox (latest) works
-- ✅Chrome (mobile latest) works
-- ✅iPhone Safari (mobile latest) works
+- ✅ IE11 ('fetch' is undefined - missing `fetch` polyfill)
+- ✅ Edge (latest) works
+- ✅ Opera (latest) works
+- ✅ Firefox (latest) works
+- ✅ Chrome (mobile latest) works
+- ✅ iPhone Safari (mobile latest) works
 
 # Create React App section
 
