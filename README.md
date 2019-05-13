@@ -163,6 +163,21 @@ As you can see, the `TreeView` itself takes care of converting flat, tabular dat
 - ✅ Named exports/imports are preferred over `default`
 - ✅ [Prettier](https://github.com/prettier/prettier) formatter was chosen to keep code tidy
 
+## Known problems
+
+- ❌IE11 is not supported so far :(
+- List styling could be done better
+- No tests so far !
+
+### Browser compatibility
+
+- ❌IE11 ('fetch' is undefined - missing `fetch` polyfill)
+- ✅Edge (latest) works
+- ✅Opera (latest) works
+- ✅Firefox (latest) works
+- ✅Chrome (mobile latest) works
+- ✅iPhone Safari (mobile latest) works
+
 # Create React App section
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
