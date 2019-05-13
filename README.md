@@ -35,7 +35,7 @@ The last goal is achieved by `TreeList` component, written completely from scrat
 
 ### Visualizing hierarchical data with `TreeList` component
 
-As an example, in the following example JSON...
+As an example, in the following JSON:
 
 ```
 [
@@ -96,14 +96,14 @@ As an example, in the following example JSON...
 ]
 ```
 
-...there are four attributes:
+as everyone can clearly see, there are four attributes:
 
 - `occupation`
 - `salary`
 - `children`
 - `name` (not very useful)
 
-...that might be visualized differently (allowing for data drill down):
+that might be visualized differently (allowing for different data drill down scenarios):
 
 ![data](./docs/img/proffessions-and-number-of-kids.png)
 
@@ -131,7 +131,7 @@ const node = convertRawDataToTreeNodeWithHierarchy<SalaryInformationRecord>(
 )
 ```
 
-where `SalaryInformationRecord` is a Typescript interface:
+where `SalaryInformationRecord` is a Typescript interface matching a single **record** in the presented JSON array **table**:
 
 ```
 interface SalaryInformationRecord {
@@ -142,16 +142,16 @@ interface SalaryInformationRecord {
 }
 ```
 
-As you can see, the `TreeView` itself takes care of converting flat, tabular data into a (desired) tree hierarchy.
+As you can see, the `TreeView` itself takes care of converting flat, tabular data into a (desired) tree hierarchy. So, component not only takes care of presenting data, but also provides some helper modules/functions for transforming data (which in this case is highly relevant)
 
 ## Project (implementation and design) decisions
 
-- ✅ Create React App with Typescript support was used as a kick-start
+- ✅ Create React App with Typescript support was used as a quick kick-start
 - ✅ Redux-related file organization and general ideas are based on the [following guidelines](https://github.com/sharpcoding/react-redux-typescript-starter-kit)
 - ✅ Screens and components exhibit **batteries-included** approach:
   - a screen contains reducers, actions, action creators, effects, models etc. that are relevant to getting things done - it is up to Redux store to take it and aggregate / reuse accordingly
   - similarly, a component contains models and algorithms that are relevant to component responsibility
-- ✅ "Batteries included" philosophy is complementary to code-reuse: if something can be (re)used by several places in application, it should be moved up to a dedicated module; please note this demo-project is extremely small
+- ✅ "Batteries included" approach is complementary to code-reuse: if something can in (re)used by several places of application, it should be moved up to a dedicated module; please note this demo-project is extremely small
 - ✅ `index.ts`/`index.tsx` is used very heavily to re-export entities as folders are grouping bigger functionalities and act as modules
 - ✅ Emoji characters, not the SVG icons were used for rendering expand / collapse buttons (simpler, faster)
 - ✅ Styled-Components
