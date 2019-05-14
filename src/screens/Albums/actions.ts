@@ -13,6 +13,7 @@ export class AlbumsLoadSucceededAction implements Action {
 
 export class AlbumsLoadFailedAction implements Action {
   public readonly type = actionTypes.ALBUMS_LOAD_FAILED
+  constructor(public error: string) {}
 }
 
 export type AlbumsScreenReducerActionTypes =

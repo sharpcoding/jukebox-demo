@@ -67,9 +67,9 @@ const getNodesByHierarchy = <TRecord>(
  * a 3-level tree hierarchy allowing to drill down how kids correspond to salary
  */
 export const convertRawDataToTreeNodeWithHierarchy = <TRecord>(
-  raw: TRecord[],
   hierarchy: string[],
-  masterNodeCaption: string
+  masterNodeCaption: string,
+  raw: TRecord[]
 ): TreeNode => {
   return {
     caption: masterNodeCaption,

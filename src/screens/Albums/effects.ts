@@ -23,7 +23,7 @@ export const loadAlbums: LoadAlbumsEffect = () => (dispatch: Dispatch) => {
     .then((value: RawAlbumRecord[]) => {
       dispatch(_.toPlainObject(new AlbumsLoadSucceededAction(value)))
     })
-    .catch(() => {
-      dispatch(_.toPlainObject(new AlbumsLoadFailedAction()))
+    .catch((error) => {
+      dispatch(_.toPlainObject(new AlbumsLoadFailedAction(error)))
     })
 }
