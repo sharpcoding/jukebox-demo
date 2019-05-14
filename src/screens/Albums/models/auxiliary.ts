@@ -9,7 +9,7 @@ export interface ConvertedRawAlbumRecord {
   song: string
 }
 
-export const makeRawAlbumDataDataTwoLevel = (
+export const makeRawAlbumDataTwoLevel = (
   rawData: RawAlbumRecord[]
 ): ConvertedRawAlbumRecord[] =>
   _.toArray(

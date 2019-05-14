@@ -2,13 +2,12 @@ import * as R from "ramda"
 import { v4 } from "uuid"
 import { AlbumsScreenReducerActionTypes } from "./actions"
 import * as actionTypes from "./action-types"
-import { AlbumsScreenState, makeRawAlbumDataDataTwoLevel } from "./models"
-import { convertRawDataToTreeNodeWithHierarchy } from "../../components/TreeList"
+import { AlbumsScreenState, makeRawAlbumDataTwoLevel } from "./models"
+import { convertTabluarDataToTreeNodeWithHierarchy } from "../../components/TreeList"
 
-const convertForAlbums = R.curry(convertRawDataToTreeNodeWithHierarchy)(
-  ["bandAlbum", "song"],
-  "Albums"
-)
+const convertToTreeNodeForAlbums = R.curry(
+  convertTabluarDataToTreeNodeWithHierarchy
+)(["bandAlbum", "song"], "Albums")
 
 const initialState: AlbumsScreenState = {
   albumsRaw: [],
@@ -32,8 +31,8 @@ export const albumsScreenReducer = (
       return {
         ...state,
         albumsNode: R.compose(
-          convertForAlbums,
-          makeRawAlbumDataDataTwoLevel
+          convertToTreeNodeForAlbums,
+          makeRawAlbumDataTwoLevel
         )(action.payload)
       } as AlbumsScreenState
     case actionTypes.ALBUMS_LOAD_FAILED:

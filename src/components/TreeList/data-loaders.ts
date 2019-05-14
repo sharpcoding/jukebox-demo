@@ -60,13 +60,13 @@ const getNodesByHierarchy = <TRecord>(
  *        { name: "Ann", occupation: "nurse", salary: "30-60K", children: "1" }]
  *
  * converts it to a given hierarchy in tree by attributes given, e.g.
- * convertRawDataToTreeNodeWithHierarchy(raw, ["salary", "occupation"]) will create
+ * convertTabluarDataToTreeNodeWithHierarchy(raw, ["salary", "occupation"]) will create
  * a 2-level tree hierarchy allowing to quicky find what are the most paid jobs
  *
- * convertRawDataToTreeNodeWithHierarchy(raw, ["children", "salary", "occupation"]) will create
+ * convertTabluarDataToTreeNodeWithHierarchy(raw, ["children", "salary", "occupation"]) will create
  * a 3-level tree hierarchy allowing to drill down how kids correspond to salary
  */
-export const convertRawDataToTreeNodeWithHierarchy = <TRecord>(
+export const convertTabluarDataToTreeNodeWithHierarchy = <TRecord>(
   hierarchy: string[],
   masterNodeCaption: string,
   raw: TRecord[]
