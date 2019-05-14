@@ -1,4 +1,3 @@
-import _ from "lodash"
 import * as R from "ramda"
 import { v4 } from "uuid"
 import { AlbumsScreenReducerActionTypes } from "./actions"
